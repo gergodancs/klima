@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="services.css" />
     <link rel="stylesheet" href="about.css" />
     <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="calculator.css" />
     <title>Klima</title>
   </head>
   <body>
@@ -48,7 +49,30 @@
           src="./pics/pngwing.com.png"
           alt="air conditioners"
         />
-        <img class="climas" src="./pics/klimak.png" alt="klimak" />
+        <div class="calculator">
+          <form>
+            <div class="function">
+              <label for="function">Fűtés/Hűtés</label>
+              <select name="function" id="function">
+                <option class="option" value="cooler">Hűtés</option>
+                <option class="option" value="both">Hűtés/Fűtés</option>
+              </select>
+            </div>
+            <div class="goal">
+              <label for="goal">Szempont</label
+              ><select name="goal" id="goal">
+                <option value="cheap">Óccsó</option>
+                <option value="quality">Minőségi</option>
+                <option value="lowcost">Gazdaságos</option>
+              </select>
+            </div>
+            <div class="place">
+              <label for="place">Helyiség mérete</label>
+              <input name="place" id="place" type="text" placeholder="m3" />
+            </div>
+          </form>
+          <button>Ajánlatok</button>
+        </div>
         <div class="landing-intro-container">
           <h1>
             Klímaszerelés Budapesten <br />
@@ -77,16 +101,6 @@
         <div id="ask-offer" class="ask-offer">
           <p>Ajánlatot kérek!</p>
         </div>
-        <form class="hidden">
-          <div class="close-form">X</div>
-          <label for="name">Név</label>
-          <input type="text" name="name" id="name" />
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
-          <label for="message">Üzenet</label>
-          <textarea name="message" id="message" cols="30" rows="10"></textarea>
-          <button class="submit">Elküld</button>
-        </form>
       </section>
       <section id="services" class="services-section">
         <div class="services-card">
