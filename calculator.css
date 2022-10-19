@@ -1,7 +1,14 @@
+.cal-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .calculator {
-  position: absolute;
-  top: 15%;
-  left: 60%;
+  margin-top: 100px;
+  margin-right: 20px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,8 +16,8 @@
   gap: 1rem;
   width: 550px;
   height: 20%;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.15);
+
+  background: rgba(129, 203, 233, 0.308);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -56,7 +63,7 @@ input {
   border: none;
   outline: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.397);
-  background-color: rgb(189, 189, 189);
+  background: rgba(255, 255, 255, 0.15);
   font-size: 16px;
   padding: 3px;
   border-radius: 3px;
@@ -84,4 +91,32 @@ option {
   border-radius: 3px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.568) inset,
     -1px -1px 3px rgba(0, 0, 0, 0.61) inset;
+}
+@media screen and (max-width: 500px) {
+  .calculator {
+    width: 90%;
+    height: 150px;
+    margin: 80px 0 0 0;
+  }
+  .cal-container {
+    position: absolute;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  input,
+  select {
+    width: 80px;
+  }
+  label {
+    font-size: 14px;
+  }
+  .form {
+    gap: 0;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .landing-intro-container h1 {
+    font-size: 20px;
+    text-align: center;
+  }
 }

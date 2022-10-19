@@ -62,3 +62,30 @@ li {
   width: 20%;
   height: 20%;
 }
+
+@media screen and (max-width: 500px) {
+  .about-card {
+    width: 90%;
+  }
+  .about-content {
+    width: 100%;
+  }
+  .about-section h1 {
+    font-size: 18px;
+    text-align: center;
+  }
+  .about-card img {
+    display: none;
+  }
+  .about-content > ul > li,
+  p {
+    margin: 0 auto;
+  }
+  .about-content > ul > h3 {
+    text-align: center;
+  }
+  .about-section {
+    height: 100%;
+    margin-top: 20px;
+  }
+}

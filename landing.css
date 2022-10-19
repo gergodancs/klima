@@ -15,6 +15,8 @@ html {
 .app-container {
   width: 100vw;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 header {
   background-color: rgba(155, 156, 156, 0.993);
@@ -70,6 +72,7 @@ header {
 .landing-section {
   height: 100vh;
   max-height: 100%;
+  display: flex;
 }
 
 .services-section {
@@ -77,9 +80,9 @@ header {
   max-height: 100%;
 }
 .landing-intro-container {
-  margin-left: 40px;
-  position: relative;
-  top: 16%;
+  width: 100%;
+  margin-top: 100px;
+  margin-left: 20px;
 }
 .landing-intro-container h1 {
   font-size: 46px;
@@ -93,108 +96,7 @@ header {
 .landing-intro-container li:hover {
   color: black;
 }
-.ask-offer {
-  background-color: rgba(34, 34, 33, 0.377);
-  height: 60px;
-  width: 250px;
-  position: relative;
-  top: 35%;
-  margin-left: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.623);
-  font-weight: 600;
-}
-.ask-offer:hover {
-  background-color: rgba(34, 34, 33, 0.568);
-  cursor: pointer;
-  transform: scale(0.98);
-  transition-duration: 2.5ms;
-  color: black;
-  box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.281),
-    -2px -2px 3px inset rgba(0, 0, 0, 0.281);
-}
-/* 
-form {
-  padding: 10px;
-  background-color: rgba(111, 160, 167, 0.836);
-  height: 450px;
-  max-width: 50%;
-  min-width: 300px;
-  position: relative;
-  top: -35%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 10px;
-  font-size: 24px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.945);
-}
-form label {
-  color: rgb(209, 215, 221);
-  letter-spacing: 0.2rem;
-  font-weight: 500;
-  align-self: flex-start;
-  margin-left: 7%;
-}
-form input {
-  height: 50px;
-  border-radius: 3px;
-  outline: none;
-  border: none;
-}
-form input,
-textarea {
-  width: 90%;
-  outline: none;
-  border: none;
-  border-radius: 3px;
-  padding: 10px;
-  background-color: rgba(206, 235, 235, 0.658);
-} */
-textarea {
-  margin-bottom: 20px;
-}
 
-.submit {
-  min-width: 90%;
-  height: 50px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(207, 214, 221);
-  letter-spacing: 0.2rem;
-  font-weight: 600;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-.submit:hover {
-  transform: scale(0.99);
-  transition-duration: 2.5ms;
-  box-shadow: 2px 2px 3px inset rgba(0, 0, 0, 0.281),
-    -2px -2px 3px inset rgba(0, 0, 0, 0.39);
-  cursor: pointer;
-}
-.hidden {
-  display: none;
-}
-.close-form {
-  color: rgb(203, 211, 218);
-  font-size: 12px;
-  position: relative;
-  left: 48%;
-  cursor: pointer;
-}
-.close-form:hover {
-  transform: scale(1.1);
-  color: #fff;
-}
 li {
   display: flex;
   align-items: center;
@@ -202,4 +104,28 @@ li {
 }
 li img {
   width: 40px;
+}
+
+@media screen and (max-width: 500px) {
+  .landing-section {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .logo-container > img {
+    display: none;
+  }
+  .logo,
+  .logo-container {
+    display: none;
+  }
+  .menu ul {
+    display: flex;
+    column-gap: 3px;
+  }
+  .menu {
+    margin: 0;
+  }
 }

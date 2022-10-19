@@ -32,7 +32,6 @@
 }
 .services-section li,
 p {
-  font-weight: 500;
   color: rgb(65, 65, 65);
   width: 80%;
 }
@@ -53,4 +52,34 @@ li {
 .services-card > img {
   width: 20%;
   height: 20%;
+}
+@media screen and (max-width: 500px) {
+  .services-section {
+    height: 100%;
+  }
+  .services-card {
+    width: 90%;
+  }
+  .services-content {
+    width: 100%;
+  }
+  .services-card > img {
+    display: none;
+  }
+  .services-section h1 {
+    letter-spacing: 0.1rem;
+    color: rgb(65, 65, 65);
+    font-size: 18px;
+    text-align: center;
+  }
+  .services-content > ul > h3 {
+    text-align: center;
+  }
+  .services-content {
+    gap: 1rem;
+  }
+  .services-content > ul > li,
+  p {
+    margin: 0 auto;
+  }
 }
