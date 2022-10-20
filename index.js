@@ -3,10 +3,8 @@ const climas = [
     brand: "tcl",
     type: "elite",
     kw: 2.6,
-    price: "219900",
-    cooler: true,
+    price: 219900,
     heater: false,
-    both: false,
     capacity: 22,
   },
   {
@@ -14,9 +12,7 @@ const climas = [
     type: "thermo - x",
     kw: 2.6,
     price: 249900,
-    cooler: true,
     heater: true,
-    both: true,
     capacity: 22,
   },
   {
@@ -24,10 +20,24 @@ const climas = [
     type: "fresh-in",
     kw: 2.7,
     price: 309900,
-    cooler: true,
     heater: true,
-    both: true,
     capacity: 22,
+  },
+  {
+    brand: "cascade",
+    type: "bora",
+    kw: 3.2,
+    price: 264900,
+    heater: false,
+    capacity: 35,
+  },
+  {
+    brand: "cascade",
+    type: "vision nordic",
+    kw: 5.2,
+    price: 436900,
+    heater: true,
+    capacity: 48,
   },
 ];
 
@@ -45,7 +55,33 @@ const sizeSelect = document.getElementById("place");
 const submit = document.getElementById("submit");
 const calculatorContainer = document.getElementById("calculator");
 
+let ascOrderedClimas = [];
+
+const ascOrderList = () => {
+  ascOrderedClimas = climas.sort((a, b) => a.price - b.price);
+};
+
+const calculateAveragePrice = () => {
+  let sumOfPrices = 0;
+  for (let climas of ascOrderedClimas) {
+    sumOfPrices += climas.price;
+  }
+  return sumOfPrices / ascOrderedClimas.length;
+};
+
 functionSelect.addEventListener("focus", () => {
+  if (listIsOpen) {
+    document.querySelector(".clima-list").remove();
+    listIsOpen = false;
+  }
+});
+goalSelect.addEventListener("focus", () => {
+  if (listIsOpen) {
+    document.querySelector(".clima-list").remove();
+    listIsOpen = false;
+  }
+});
+sizeSelect.addEventListener("focus", () => {
   if (listIsOpen) {
     document.querySelector(".clima-list").remove();
     listIsOpen = false;
@@ -53,17 +89,13 @@ functionSelect.addEventListener("focus", () => {
 });
 
 functionSelect.addEventListener("change", (e) => {
-  if (listIsOpen) document.getElementsByClassName("clima-list").remove();
   formValues.func = e.target.value;
-  console.log({ formValues });
 });
 goalSelect.addEventListener("change", (e) => {
   formValues.goal = e.target.value;
-  console.log({ formValues });
 });
 sizeSelect.addEventListener("input", (e) => {
   formValues.size = e.target.value;
-  console.log({ formValues });
 });
 
 const createList = (listDiv, item) => {
@@ -84,24 +116,45 @@ const createList = (listDiv, item) => {
 };
 
 const calculateClima = () => {
+  ascOrderList();
+  if (formValues.size === "") {
+    return alert("Kérem adja meg a szoba méretét!");
+  }
   listIsOpen = true;
   let listDiv = document.createElement("div");
   listDiv.className = "clima-list";
   calculatorContainer.append(listDiv);
+
+  if (formValues.goal === "cheap") {
+    return ascOrderedClimas.map((item) => {
+      if (
+        item.price <= calculateAveragePrice() &&
+        item.capacity > formValues.size
+      ) {
+        createList(listDiv, item);
+      }
+    });
+  }
+  if (formValues.goal === "quality") {
+    return ascOrderedClimas.map((item) => {
+      if (
+        item.price >= calculateAveragePrice() &&
+        item.capacity > formValues.size
+      ) {
+        createList(listDiv, item);
+      }
+    });
+  }
   if (formValues.func === "cooler") {
-    listIsOpen = true;
-    return climas.map((item) => {
-      if (item.cooler === true) {
+    return ascOrderedClimas?.map((item) => {
+      if (!item.heater && item.capacity > formValues.size) {
         createList(listDiv, item);
       }
     });
   }
   if (formValues.func === "both") {
-    listIsOpen = true;
-    return climas.map((item) => {
-      if (item.both === true) {
-        createList(calculatorContainer, item);
-      }
+    return ascOrderedClimas?.map((item) => {
+      if (item.capacity > formValues.size) createList(listDiv, item);
     });
   }
 };
