@@ -58,18 +58,19 @@ sizeSelect.addEventListener("input", (e) => {
 
 const createList = (listDiv, item) => {
   let spanBrand = document.createElement("span");
-
   let spanPrice = document.createElement("span");
   let listElement = document.createElement("li");
   spanBrand.textContent =
     item.brand.toUpperCase() + " " + item.type.toUpperCase();
-
-  spanPrice.textContent = item.price;
+  spanPrice.textContent = item.price + "Ft";
   listDiv.append(listElement);
   listElement.append(spanBrand, spanPrice);
 };
 
+let listIsOpen = false;
+
 const calculateClima = () => {
+  listIsOpen = true;
   let listDiv = document.createElement("div");
   listDiv.className = "clima-list";
   calculatorContainer.append(listDiv);
@@ -91,4 +92,6 @@ const calculateClima = () => {
   }
 };
 
-submit.addEventListener("click", () => calculateClima());
+submit.addEventListener("click", () => {
+  if (!listIsOpen) return calculateClima();
+});
