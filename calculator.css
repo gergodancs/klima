@@ -8,15 +8,14 @@
 .calculator {
   margin-top: 100px;
   margin-right: 20px;
-
+  padding: 5px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   width: 550px;
-  height: 20%;
-
+  height: fit-content;
   background: rgba(129, 203, 233, 0.308);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -95,7 +94,8 @@ option {
 @media screen and (max-width: 500px) {
   .calculator {
     width: 90%;
-    height: 150px;
+    height: fit-content;
+
     margin: 80px 0 0 0;
   }
   .cal-container {

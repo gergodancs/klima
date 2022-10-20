@@ -105,6 +105,21 @@ li {
 li img {
   width: 40px;
 }
+.clima-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.clima-list > li > span {
+  font-weight: 600;
+  z-index: 10;
+}
+.clima-list > li {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 10px 0 10px;
+}
 
 @media screen and (max-width: 500px) {
   .landing-section {

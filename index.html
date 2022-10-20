@@ -76,11 +76,12 @@
           </ul>
         </div>
         <div class="cal-container">
-          <div class="calculator">
+          <div class="calculator" id="calculator">
             <form>
               <div class="function">
                 <label for="function">Fűtés/Hűtés</label>
                 <select name="function" id="function">
+                  <option class="option">- funkcio -</option>
                   <option class="option" value="cooler">Hűtés</option>
                   <option class="option" value="both">Hűtés/Fűtés</option>
                 </select>
@@ -88,7 +89,8 @@
               <div class="goal">
                 <label for="goal">Szempont</label
                 ><select name="goal" id="goal">
-                  <option value="cheap">Óccsó</option>
+                  <option>- Ár -</option>
+                  <option value="cheap">Olcsó</option>
                   <option value="quality">Minőségi</option>
                   <option value="lowcost">Gazdaságos</option>
                 </select>
@@ -98,7 +100,7 @@
                 <input name="place" id="place" type="text" placeholder="m3" />
               </div>
             </form>
-            <button>Ajánlatok</button>
+            <button id="submit">Ajánlatok</button>
           </div>
         </div>
       </section>
