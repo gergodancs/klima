@@ -104,7 +104,7 @@ const createList = (listDiv, item) => {
   let listElement = document.createElement("li");
   let icon = document.createElement("img");
   let typeContainer = document.createElement("div");
-  icon.src = "/pics/pngegg.png";
+  icon.src = "./pics/pngegg.png";
   icon.className = "list-icon";
   spanBrand.textContent =
     item.brand.toUpperCase() + " " + item.type.toUpperCase();
