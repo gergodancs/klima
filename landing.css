@@ -32,6 +32,10 @@ header {
   font-weight: 800;
   letter-spacing: 0.3rem;
 }
+.list-icon {
+  z-index: 100;
+  width: 100px;
+}
 .logo-container {
   display: flex;
   justify-content: center;
@@ -66,7 +70,7 @@ header {
   top: 20%;
 }
 .icon {
-  width: 30px;
+  height: 120px;
   margin-left: 20px;
 }
 .landing-section {
@@ -114,11 +118,20 @@ li img {
   font-weight: 600;
   z-index: 10;
 }
+.clima-list > li > div > span {
+  font-weight: 600;
+  z-index: 10;
+}
 .clima-list > li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0;
   padding: 0 10px 0 10px;
+}
+.clima-list > li > div {
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 500px) {
@@ -142,5 +155,16 @@ li img {
   }
   .menu {
     margin: 0;
+  }
+  .list-icon {
+    width: 85px;
+  }
+  .clima-list > li > div > span {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  .clima-list > li > span {
+    font-weight: normal;
+    font-size: 14px;
   }
 }

@@ -31,6 +31,8 @@ const climas = [
   },
 ];
 
+let listIsOpen = false;
+
 let formValues = {
   func: "",
   goal: "",
@@ -43,7 +45,15 @@ const sizeSelect = document.getElementById("place");
 const submit = document.getElementById("submit");
 const calculatorContainer = document.getElementById("calculator");
 
+functionSelect.addEventListener("focus", () => {
+  if (listIsOpen) {
+    document.querySelector(".clima-list").remove();
+    listIsOpen = false;
+  }
+});
+
 functionSelect.addEventListener("change", (e) => {
+  if (listIsOpen) document.getElementsByClassName("clima-list").remove();
   formValues.func = e.target.value;
   console.log({ formValues });
 });
@@ -60,14 +70,18 @@ const createList = (listDiv, item) => {
   let spanBrand = document.createElement("span");
   let spanPrice = document.createElement("span");
   let listElement = document.createElement("li");
+  let icon = document.createElement("img");
+  let typeContainer = document.createElement("div");
+  icon.src = "/pics/pngegg.png";
+  icon.className = "list-icon";
   spanBrand.textContent =
     item.brand.toUpperCase() + " " + item.type.toUpperCase();
   spanPrice.textContent = item.price + "Ft";
-  listDiv.append(listElement);
-  listElement.append(spanBrand, spanPrice);
-};
+  typeContainer.append(icon, spanBrand);
 
-let listIsOpen = false;
+  listDiv.append(listElement);
+  listElement.append(typeContainer, spanPrice);
+};
 
 const calculateClima = () => {
   listIsOpen = true;
