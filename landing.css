@@ -109,28 +109,37 @@ li {
 li img {
   width: 40px;
 }
+
+.clima-list > li {
+  display: flex;
+  flex-direction: column;
+}
+.clima-list li:hover {
+  cursor: pointer;
+}
 .clima-list {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.clima-list > li > span {
-  font-weight: 600;
-  z-index: 10;
-}
 .clima-list > li > div > span {
   font-weight: 600;
   z-index: 10;
 }
-.clima-list > li {
+.clima-list > li > div > div > span {
+  font-weight: 600;
+  z-index: 10;
+}
+
+.sm-container {
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0;
-  padding: 0 10px 0 10px;
 }
-.clima-list > li > div {
+.sm-container > div {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 

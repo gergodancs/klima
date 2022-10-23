@@ -6,6 +6,7 @@ const climas = [
     price: 219900,
     heater: false,
     capacity: 22,
+    src: "./pics/szurke-klima.jpeg",
   },
   {
     brand: "tcl",
@@ -14,6 +15,7 @@ const climas = [
     price: 249900,
     heater: true,
     capacity: 22,
+    src: "./pics/feher-level-klima.jpeg",
   },
   {
     brand: "tcl",
@@ -22,6 +24,7 @@ const climas = [
     price: 309900,
     heater: true,
     capacity: 22,
+    src: "./pics/feher-klima.jpeg",
   },
   {
     brand: "cascade",
@@ -30,6 +33,7 @@ const climas = [
     price: 264900,
     heater: false,
     capacity: 35,
+    src: "./pics/szurke-klima.jpeg",
   },
   {
     brand: "cascade",
@@ -38,10 +42,12 @@ const climas = [
     price: 436900,
     heater: true,
     capacity: 48,
+    src: "./pics/feher-klima.jpeg",
   },
 ];
 
 let listIsOpen = false;
+let detailsIsOpen = false;
 
 let formValues = {
   func: "",
@@ -88,20 +94,49 @@ sizeSelect.addEventListener("focus", () => {
   }
 });
 
-functionSelect.addEventListener("change", (e) => {
-  formValues.func = e.target.value;
-});
-goalSelect.addEventListener("change", (e) => {
-  formValues.goal = e.target.value;
-});
-sizeSelect.addEventListener("input", (e) => {
-  formValues.size = e.target.value;
-});
+functionSelect.addEventListener(
+  "change",
+  (e) => (formValues.func = e.target.value)
+);
+goalSelect.addEventListener(
+  "change",
+  (e) => (formValues.goal = e.target.value)
+);
+sizeSelect.addEventListener("input", (e) => (formValues.size = e.target.value));
+
+const createDetailsPage = (item, listElement) => {
+  let detailsContainer = document.createElement("div");
+  detailsContainer.className = "details-container";
+  detailsContainer.id = "remove";
+  listElement?.append(detailsContainer);
+  let detailsImg = document.createElement("img");
+  detailsImg.src = item.src;
+  detailsImg.alt = "klima";
+
+  detailsContainer.append(detailsImg);
+  let listContainer = document.createElement("div");
+  listContainer.className = "details-list";
+  detailsContainer.append(listContainer);
+  let brand = document.createElement("span");
+  brand.innerText = `Gyártó: ${item.brand} Típus: ${item.type}`;
+  let detailsText = document.createElement("span");
+  detailsText.innerText = `Kapacítása: ${item.capacity}, Teljesítménye: ${
+    item.kw
+  }, ${item.heater ? "Hűt-Fűt" : "Hűt"} `;
+  let price = document.createElement("span");
+  price.innerText = `Ára: ${item.price}`;
+  listContainer.append(brand, detailsText, price);
+};
 
 const createList = (listDiv, item) => {
+  let smContainer = document.createElement("div");
+  smContainer.className = "sm-container";
   let spanBrand = document.createElement("span");
+
   let spanPrice = document.createElement("span");
   let listElement = document.createElement("li");
+  listElement.className = `${(item.brand, item.type)}`;
+  listElement.addEventListener("click", () => createDetailsPage(item));
   let icon = document.createElement("img");
   let typeContainer = document.createElement("div");
   icon.src = "./pics/pngegg.png";
@@ -112,14 +147,27 @@ const createList = (listDiv, item) => {
   typeContainer.append(icon, spanBrand);
 
   listDiv.append(listElement);
-  listElement.append(typeContainer, spanPrice);
+  smContainer.append(typeContainer, spanPrice);
+  listElement.append(smContainer);
+  listElement.addEventListener("click", () => {
+    if (detailsIsOpen === true) {
+      let detailsContainer = document.getElementById("remove");
+      detailsContainer.remove();
+      detailsIsOpen = false;
+      createDetailsPage(item, listElement);
+      detailsIsOpen = true;
+    } else {
+      createDetailsPage(item, listElement);
+      detailsIsOpen = true;
+    }
+  });
 };
 
 const calculateClima = () => {
   ascOrderList();
-  if (formValues.size === "") {
-    return alert("Kérem adja meg a szoba méretét!");
-  }
+  if (formValues.size === "") alert("Kérem adja meg a szoba méretét!");
+  if (formValues.func === "") alert("Kérem adja meg a felhasználási módját");
+
   listIsOpen = true;
   let listDiv = document.createElement("div");
   listDiv.className = "clima-list";
@@ -139,26 +187,24 @@ const calculateClima = () => {
     return ascOrderedClimas.map((item) => {
       if (
         item.price >= calculateAveragePrice() &&
-        item.capacity > formValues.size
+        item.capacity >= formValues.size
       ) {
         createList(listDiv, item);
       }
     });
   }
   if (formValues.func === "cooler") {
-    return ascOrderedClimas?.map((item) => {
-      if (!item.heater && item.capacity > formValues.size) {
-        createList(listDiv, item);
-      }
-    });
+    return ascOrderedClimas?.map((item) =>
+      item.capacity >= formValues.size ? createList(listDiv, item) : null
+    );
   }
   if (formValues.func === "both") {
-    return ascOrderedClimas?.map((item) => {
-      if (item.capacity > formValues.size) createList(listDiv, item);
-    });
+    return ascOrderedClimas?.map((item) =>
+      !item.heater && item.capacity >= formValues.size
+        ? createList(listDiv, item)
+        : null
+    );
   }
 };
 
-submit.addEventListener("click", () => {
-  if (!listIsOpen) return calculateClima();
-});
+submit.addEventListener("click", () => (!listIsOpen ? calculateClima() : null));
