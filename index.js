@@ -6,7 +6,11 @@ const climas = [
     price: 219900,
     heater: false,
     capacity: 22,
+    energy: "A++",
+    guarntie: "3év",
     src: "./pics/szurke-klima.jpeg",
+    description: `Matt panelje kiemeli a többi klyma közül.
+    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
   {
     brand: "tcl",
@@ -16,6 +20,11 @@ const climas = [
     heater: true,
     capacity: 22,
     src: "./pics/feher-level-klima.jpeg",
+    energy: "A++",
+    guarntie: "3év",
+    src: "./pics/szurke-klima.jpeg",
+    description: `Matt panelje kiemeli a többi klyma közül.
+    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
   {
     brand: "tcl",
@@ -25,6 +34,11 @@ const climas = [
     heater: true,
     capacity: 22,
     src: "./pics/feher-klima.jpeg",
+    energy: "A++",
+    guarntie: "3év",
+    src: "./pics/szurke-klima.jpeg",
+    description: `Matt panelje kiemeli a többi klyma közül.
+    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
   {
     brand: "cascade",
@@ -34,6 +48,11 @@ const climas = [
     heater: false,
     capacity: 35,
     src: "./pics/szurke-klima.jpeg",
+    energy: "A++",
+    guarntie: "3év",
+    src: "./pics/szurke-klima.jpeg",
+    description: `Matt panelje kiemeli a többi klyma közül.
+    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
   {
     brand: "cascade",
@@ -43,6 +62,11 @@ const climas = [
     heater: true,
     capacity: 48,
     src: "./pics/feher-klima.jpeg",
+    energy: "A++",
+    guarntie: "3év",
+    src: "./pics/szurke-klima.jpeg",
+    description: `Matt panelje kiemeli a többi klima közül.
+    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
 ];
 
@@ -117,15 +141,16 @@ const createDetailsPage = (item, listElement) => {
   let listContainer = document.createElement("div");
   listContainer.className = "details-list";
   detailsContainer.append(listContainer);
-  let brand = document.createElement("span");
-  brand.innerText = `Gyártó: ${item.brand} Típus: ${item.type}`;
-  let detailsText = document.createElement("span");
-  detailsText.innerText = `Kapacítása: ${item.capacity}, Teljesítménye: ${
-    item.kw
-  }, ${item.heater ? "Hűt-Fűt" : "Hűt"} `;
+  let energy = document.createElement("span");
+  energy.innerText = `Energia osztály: ${item.energy} `;
+  let guarntie = document.createElement("span");
+  guarntie.innerText = `Garancia: ${item.guarntie} `;
+  let description = document.createElement("p");
+  description.innerHTML = item.description;
+  description.className = "description";
   let price = document.createElement("span");
   price.innerText = `Ára: ${item.price}`;
-  listContainer.append(brand, detailsText, price);
+  listContainer.append(energy, guarntie, description, price);
 };
 
 const createList = (listDiv, item) => {
