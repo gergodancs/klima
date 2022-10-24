@@ -9,7 +9,7 @@ const climas = [
     energy: "A++",
     guarntie: "3év",
     src: "./pics/szurke-klima.jpeg",
-    description: `Matt panelje kiemeli a többi klyma közül.
+    description: `Matt panelje kiemeli a többi klíma közül.
     A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
   {
@@ -23,7 +23,7 @@ const climas = [
     energy: "A++",
     guarntie: "3év",
     src: "./pics/szurke-klima.jpeg",
-    description: `Matt panelje kiemeli a többi klyma közül.
+    description: `Matt panelje kiemeli a többi klíma közül.
     A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
   {
@@ -51,7 +51,7 @@ const climas = [
     energy: "A++",
     guarntie: "3év",
     src: "./pics/szurke-klima.jpeg",
-    description: `Matt panelje kiemeli a többi klyma közül.
+    description: `Matt panelje kiemeli a többi klíma közül.
     A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
   {
@@ -148,9 +148,15 @@ const createDetailsPage = (item, listElement) => {
   let description = document.createElement("p");
   description.innerHTML = item.description;
   description.className = "description";
+  let orderDiv = document.createElement("div");
+  orderDiv.className = "order-container";
   let price = document.createElement("span");
-  price.innerText = `Ára: ${item.price}`;
-  listContainer.append(energy, guarntie, description, price);
+  price.innerText = `Ára: ${item.price}Ft`;
+  let orderBtn = document.createElement("button");
+  orderBtn.className = "order-btn";
+  orderBtn.innerHTML = "Érdekel!";
+  orderDiv.append(price, orderBtn);
+  listContainer.append(energy, guarntie, description, orderDiv);
 };
 
 const createList = (listDiv, item) => {
