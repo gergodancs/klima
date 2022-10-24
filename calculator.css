@@ -6,6 +6,8 @@
 }
 
 .calculator {
+  max-height: 600px;
+  overflow-y: scroll;
   margin-top: 100px;
   margin-right: 80px;
   padding: 10px 0;
@@ -23,6 +25,9 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 10;
+}
+.calculator::-webkit-scrollbar {
+  display: none;
 }
 .details-container {
   width: 90%;
@@ -68,14 +73,20 @@ form {
 .function {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .goal {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .place {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 label {
   text-align: center;
@@ -84,6 +95,7 @@ label {
 }
 
 select {
+  width: 150px;
   outline: none;
   border: none;
   background: rgba(255, 255, 255, 0.15);
@@ -96,6 +108,7 @@ select:hover {
   cursor: pointer;
 }
 input {
+  width: 150px;
   border: none;
   outline: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.397);

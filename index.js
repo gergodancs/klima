@@ -8,7 +8,7 @@ const climas = [
     capacity: 22,
     energy: "A++",
     guarntie: "3év",
-    src: "./pics/szurke-klima.jpeg",
+    src: "./pics/1.png",
     description: `Matt panelje kiemeli a többi klíma közül.
     A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
@@ -19,10 +19,9 @@ const climas = [
     price: 249900,
     heater: true,
     capacity: 22,
-    src: "./pics/feher-level-klima.jpeg",
+    src: "./pics/2.png",
     energy: "A++",
     guarntie: "3év",
-    src: "./pics/szurke-klima.jpeg",
     description: `Matt panelje kiemeli a többi klíma közül.
     A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
@@ -33,10 +32,9 @@ const climas = [
     price: 309900,
     heater: true,
     capacity: 22,
-    src: "./pics/feher-klima.jpeg",
+    src: "./pics/3.png",
     energy: "A++",
     guarntie: "3év",
-    src: "./pics/szurke-klima.jpeg",
     description: `Matt panelje kiemeli a többi klyma közül.
     A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
@@ -47,10 +45,9 @@ const climas = [
     price: 264900,
     heater: false,
     capacity: 35,
-    src: "./pics/szurke-klima.jpeg",
+    src: "./pics/1.png",
     energy: "A++",
     guarntie: "3év",
-    src: "./pics/szurke-klima.jpeg",
     description: `Matt panelje kiemeli a többi klíma közül.
     A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
@@ -61,10 +58,9 @@ const climas = [
     price: 436900,
     heater: true,
     capacity: 48,
-    src: "./pics/feher-klima.jpeg",
+    src: "./pics/2.png",
     energy: "A++",
     guarntie: "3év",
-    src: "./pics/szurke-klima.jpeg",
     description: `Matt panelje kiemeli a többi klima közül.
     A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
   },
@@ -74,7 +70,7 @@ let listIsOpen = false;
 let detailsIsOpen = false;
 
 let formValues = {
-  func: "",
+  func: "cooler",
   goal: "",
   size: "",
 };
@@ -155,8 +151,16 @@ const createDetailsPage = (item, listElement) => {
   let orderBtn = document.createElement("button");
   orderBtn.className = "order-btn";
   orderBtn.innerHTML = "Érdekel!";
-  orderDiv.append(price, orderBtn);
-  listContainer.append(energy, guarntie, description, orderDiv);
+  let closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "Bezár";
+  orderDiv.append(orderBtn, closeBtn);
+  listContainer.append(energy, guarntie, price, description, orderDiv);
+  closeBtn.addEventListener("click", () => {
+    let detailsContainer = document.getElementById("remove");
+    detailsContainer.remove();
+    console.log("works");
+    detailsIsOpen = false;
+  });
 };
 
 const createList = (listDiv, item) => {
@@ -167,7 +171,6 @@ const createList = (listDiv, item) => {
   let spanPrice = document.createElement("span");
   let listElement = document.createElement("li");
   listElement.className = `${(item.brand, item.type)}`;
-  listElement.addEventListener("click", () => createDetailsPage(item));
   let icon = document.createElement("img");
   let typeContainer = document.createElement("div");
   icon.src = "./pics/pngegg.png";
@@ -180,7 +183,7 @@ const createList = (listDiv, item) => {
   listDiv.append(listElement);
   smContainer.append(typeContainer, spanPrice);
   listElement.append(smContainer);
-  listElement.addEventListener("click", () => {
+  typeContainer.addEventListener("click", () => {
     if (detailsIsOpen === true) {
       let detailsContainer = document.getElementById("remove");
       detailsContainer.remove();

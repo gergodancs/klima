@@ -19,7 +19,7 @@ html {
   flex-direction: column;
 }
 header {
-  background-color: rgba(155, 156, 156, 0.993);
+  background-color: rgba(199, 202, 202, 0.993);
   height: 60px;
   width: 100%;
   position: fixed;
@@ -121,6 +121,10 @@ li img {
   display: flex;
   flex-direction: column;
   width: 100%;
+  overflow-y: scroll;
+}
+.clima-list::-webkit-scrollbar {
+  display: none;
 }
 .clima-list > li > div > span {
   font-weight: 600;
@@ -141,6 +145,9 @@ li img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+button:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {
@@ -175,5 +182,12 @@ li img {
   .clima-list > li > span {
     font-weight: normal;
     font-size: 14px;
+  }
+  .landing-intro-container li {
+    font-size: 18px;
+  }
+  label {
+    font-size: 18px;
+    font-weight: 400;
   }
 }
