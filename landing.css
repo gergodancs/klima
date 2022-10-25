@@ -114,9 +114,7 @@ li img {
   display: flex;
   flex-direction: column;
 }
-.clima-list li:hover {
-  cursor: pointer;
-}
+
 .clima-list {
   display: flex;
   flex-direction: column;
@@ -140,6 +138,9 @@ li img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.sm-container:hover {
+  cursor: pointer;
 }
 .sm-container > div {
   display: flex;

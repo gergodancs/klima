@@ -144,23 +144,38 @@ const createDetailsPage = (item, listElement) => {
   let description = document.createElement("p");
   description.innerHTML = item.description;
   description.className = "description";
-  let orderDiv = document.createElement("div");
-  orderDiv.className = "order-container";
+  let interestDiv = document.createElement("div");
+  interestDiv.className = "order-container";
   let price = document.createElement("span");
   price.innerText = `Ára: ${item.price}Ft`;
-  let orderBtn = document.createElement("button");
-  orderBtn.className = "order-btn";
-  orderBtn.innerHTML = "Érdekel!";
+  let interestBtn = document.createElement("button");
+  interestBtn.className = "order-btn";
+  interestBtn.innerHTML = "Érdekel!";
   let closeBtn = document.createElement("button");
   closeBtn.innerHTML = "Bezár";
-  orderDiv.append(orderBtn, closeBtn);
-  listContainer.append(energy, guarntie, price, description, orderDiv);
+  interestDiv.append(interestBtn, closeBtn);
+  listContainer.append(energy, guarntie, price, description, interestDiv);
+  interestBtn.addEventListener("click", () => {
+    createOrderForm(detailsContainer);
+  });
   closeBtn.addEventListener("click", () => {
     let detailsContainer = document.getElementById("remove");
     detailsContainer.remove();
     console.log("works");
     detailsIsOpen = false;
   });
+};
+
+const createOrderForm = (detailsContainer) => {
+  const phoneContainer = document.createElement("div");
+  phoneContainer.className = "phone-container";
+  const phoneInput = document.createElement("input");
+  phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
+  phoneInput.type = "number";
+  const submitOrderBtn = document.createElement("button");
+  submitOrderBtn.innerHTML = "Visszahívást kérek!";
+  phoneContainer.append(phoneInput, submitOrderBtn);
+  detailsContainer.append(phoneContainer);
 };
 
 const createList = (listDiv, item) => {

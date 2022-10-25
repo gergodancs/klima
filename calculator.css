@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  width: 550px;
+  width: 600px;
   height: fit-content;
   background: rgba(129, 203, 233, 0.308);
   border-radius: 16px;
@@ -140,6 +140,18 @@ option {
   border-radius: 3px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.568) inset,
     -1px -1px 3px rgba(0, 0, 0, 0.61) inset;
+}
+.phone-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.phone-container > button {
+  width: 150px;
+}
+.phone-container > input {
+  width: 100%;
 }
 @media screen and (max-width: 500px) {
   .calculator {
