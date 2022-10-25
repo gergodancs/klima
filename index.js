@@ -73,6 +73,8 @@ let formValues = {
   func: "cooler",
   goal: "",
   size: "",
+  phone: "",
+  type: "",
 };
 
 const functionSelect = document.getElementById("function");
@@ -132,7 +134,6 @@ const createDetailsPage = (item, listElement) => {
   let detailsImg = document.createElement("img");
   detailsImg.src = item.src;
   detailsImg.alt = "klima";
-
   detailsContainer.append(detailsImg);
   let listContainer = document.createElement("div");
   listContainer.className = "details-list";
@@ -156,17 +157,16 @@ const createDetailsPage = (item, listElement) => {
   interestDiv.append(interestBtn, closeBtn);
   listContainer.append(energy, guarntie, price, description, interestDiv);
   interestBtn.addEventListener("click", () => {
-    createOrderForm(detailsContainer);
+    createOrderForm(detailsContainer, item);
   });
   closeBtn.addEventListener("click", () => {
     let detailsContainer = document.getElementById("remove");
     detailsContainer.remove();
-    console.log("works");
     detailsIsOpen = false;
   });
 };
 
-const createOrderForm = (detailsContainer) => {
+const createOrderForm = (detailsContainer, item) => {
   const phoneContainer = document.createElement("div");
   phoneContainer.className = "phone-container";
   const phoneInput = document.createElement("input");
@@ -174,6 +174,11 @@ const createOrderForm = (detailsContainer) => {
   phoneInput.type = "number";
   const submitOrderBtn = document.createElement("button");
   submitOrderBtn.innerHTML = "Visszahívást kérek!";
+  phoneInput.addEventListener("input", (e) => {
+    formValues.phone = e.target.value;
+    formValues.type = `${item.brand} ${item.type}`;
+  });
+  submitOrderBtn.addEventListener("click", () => console.log({ formValues }));
   phoneContainer.append(phoneInput, submitOrderBtn);
   detailsContainer.append(phoneContainer);
 };
