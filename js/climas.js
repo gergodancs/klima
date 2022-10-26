@@ -1,4 +1,4 @@
-const climas = [
+export const climas = [
   {
     brand: "tcl",
     type: "elite",

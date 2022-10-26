@@ -1,70 +1,4 @@
-const climas = [
-  {
-    brand: "tcl",
-    type: "elite",
-    kw: 2.6,
-    price: 219900,
-    heater: false,
-    capacity: 22,
-    energy: "A++",
-    guarntie: "3év",
-    src: "./pics/1.png",
-    description: `Matt panelje kiemeli a többi klíma közül.
-    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
-  },
-  {
-    brand: "tcl",
-    type: "thermo - x",
-    kw: 2.6,
-    price: 249900,
-    heater: true,
-    capacity: 22,
-    src: "./pics/2.png",
-    energy: "A++",
-    guarntie: "3év",
-    description: `Matt panelje kiemeli a többi klíma közül.
-    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
-  },
-  {
-    brand: "tcl",
-    type: "fresh-in",
-    kw: 2.7,
-    price: 309900,
-    heater: true,
-    capacity: 22,
-    src: "./pics/3.png",
-    energy: "A++",
-    guarntie: "3év",
-    description: `Matt panelje kiemeli a többi klyma közül.
-    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
-  },
-  {
-    brand: "cascade",
-    type: "bora",
-    kw: 3.2,
-    price: 264900,
-    heater: false,
-    capacity: 35,
-    src: "./pics/1.png",
-    energy: "A++",
-    guarntie: "3év",
-    description: `Matt panelje kiemeli a többi klíma közül.
-    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
-  },
-  {
-    brand: "cascade",
-    type: "vision nordic",
-    kw: 5.2,
-    price: 436900,
-    heater: true,
-    capacity: 48,
-    src: "./pics/2.png",
-    energy: "A++",
-    guarntie: "3év",
-    description: `Matt panelje kiemeli a többi klima közül.
-    A légbefúvás olyan egyneletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
-  },
-];
+import { climas } from "./climas.js";
 
 let listIsOpen = false;
 let detailsIsOpen = false;
@@ -97,24 +31,17 @@ const calculateAveragePrice = () => {
   return sumOfPrices / ascOrderedClimas.length;
 };
 
-functionSelect.addEventListener("focus", () => {
+const removeClimalist = () => {
   if (listIsOpen) {
     document.querySelector(".clima-list").remove();
     listIsOpen = false;
+    detailsIsOpen = false;
   }
-});
-goalSelect.addEventListener("focus", () => {
-  if (listIsOpen) {
-    document.querySelector(".clima-list").remove();
-    listIsOpen = false;
-  }
-});
-sizeSelect.addEventListener("focus", () => {
-  if (listIsOpen) {
-    document.querySelector(".clima-list").remove();
-    listIsOpen = false;
-  }
-});
+};
+
+functionSelect.addEventListener("focus", removeClimalist);
+goalSelect.addEventListener("focus", removeClimalist);
+sizeSelect.addEventListener("focus", removeClimalist);
 
 functionSelect.addEventListener(
   "change",
