@@ -2,6 +2,7 @@ import { climas } from "./climas.js";
 
 let listIsOpen = false;
 let detailsIsOpen = false;
+let closeListBtn = document.getElementById("close-list");
 
 let formValues = {
   func: "cooler",
@@ -159,6 +160,7 @@ const calculateClima = () => {
   listIsOpen = true;
   let listDiv = document.createElement("div");
   listDiv.className = "clima-list";
+  listDiv.id = "clima-list";
   calculatorContainer.append(listDiv);
 
   if (formValues.goal === "cheap") {
@@ -194,5 +196,6 @@ const calculateClima = () => {
     );
   }
 };
+closeListBtn.addEventListener("click", () => removeClimalist());
 
 submit.addEventListener("click", () => (!listIsOpen ? calculateClima() : null));
