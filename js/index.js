@@ -98,7 +98,6 @@ const createDetailsPage = (item, listElement) => {
 const createOrderForm = (detailsContainer, item) => {
   const phoneContainer = document.createElement("form");
   phoneContainer.className = "phone-container";
-  phoneContainer.setAttribute("netlify");
 
   const phoneInput = document.createElement("input");
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
