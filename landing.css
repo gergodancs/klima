@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +6,7 @@
   color: rgb(31, 30, 30);
   font-family: "Poppins", sans-serif;
   list-style: none;
+  font-family: "Poppins", sans-serif;
 }
 html {
   scroll-behavior: smooth;

@@ -95,12 +95,13 @@ const createDetailsPage = (item, listElement) => {
 };
 
 const createOrderForm = (detailsContainer, item) => {
-  const phoneContainer = document.createElement("div");
+  const phoneContainer = document.createElement("form");
   phoneContainer.className = "phone-container";
   const phoneInput = document.createElement("input");
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
   phoneInput.type = "number";
   const submitOrderBtn = document.createElement("button");
+  submitOrderBtn.type = "submit";
   submitOrderBtn.innerHTML = "Visszahívást kérek!";
   phoneInput.addEventListener("input", (e) => {
     formValues.phone = e.target.value;
