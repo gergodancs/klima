@@ -100,7 +100,7 @@ select {
   outline: none;
   border: none;
   background: rgba(255, 255, 255, 0.15);
-  font-size: 16px;
+  font-size: 0.9em;
   padding: 3px;
   border-radius: 3px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.397);
@@ -114,7 +114,7 @@ input {
   outline: none;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.397);
   background: rgba(255, 255, 255, 0.15);
-  font-size: 16px;
+  font-size: 0.9em;
   padding: 3px;
   border-radius: 3px;
 }
@@ -123,7 +123,7 @@ option {
   outline: none;
   text-align: center;
   background-color: rgb(189, 189, 189);
-  font-size: 16px;
+  font-size: 0.9em;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.397);
 }
 label,
@@ -169,17 +169,15 @@ option {
   input,
   select {
     width: 80px;
+    font-size: 0.7em;
   }
   label {
-    font-size: 14px;
+    font-size: 0.8em;
+    font-weight: 500;
   }
   .form {
     gap: 0;
     justify-content: space-evenly;
     align-items: center;
-  }
-  .landing-intro-container h1 {
-    font-size: 20px;
-    text-align: center;
   }
 }

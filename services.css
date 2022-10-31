@@ -26,7 +26,8 @@
   gap: 2rem;
 }
 
-.services-section h1 {
+.services-section h1,
+h2 {
   letter-spacing: 0.1rem;
   color: rgb(65, 65, 65);
 }
@@ -34,6 +35,7 @@
 p {
   color: rgb(65, 65, 65);
   width: 80%;
+  font-size: 1.1em;
 }
 h3 {
   color: rgb(65, 65, 65);
@@ -62,24 +64,25 @@ li {
   }
   .services-content {
     width: 100%;
+    gap: 0.5rem;
   }
   .services-card > img {
     display: none;
   }
-  .services-section h1 {
+  .services-section h2 {
     letter-spacing: 0.1rem;
     color: rgb(65, 65, 65);
-    font-size: 18px;
+    font-size: 0.9em;
     text-align: center;
   }
-  .services-content > ul > h3 {
+  .services-content > h3 {
     text-align: center;
+    font-size: 0.9em;
   }
-  .services-content {
-    gap: 1rem;
-  }
+
   .services-content > ul > li,
   p {
     margin: 0 auto;
+    font-size: 0.9em;
   }
 }
