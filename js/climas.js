@@ -8,7 +8,7 @@ export const climas = [
     capacity: 22,
     energy: "A++",
     guarntie: "3 év",
-    src: "./pics/climasPics/tclelite.png",
+    src: "../pics/climasPics/tclelite.png",
     description: `Elegáns megjelenése bármely otthonba illik. Kényelmi funkciók sokasága, mint az I feel, az I set, a Smart Air Flow vagy az Anti cold air gondoskodik a felhasználónak leginkább megfelelő hőérzetről, a beépített hűtőközeg-szivárgás érzékelő pedig a biztonságról. 4in1 szűrő, öntisztító és sterilizáló funkció felel a levegő tisztaságáért. A készülékben WiFi előkészítés található.`,
   },
   {
@@ -18,7 +18,7 @@ export const climas = [
     price: 276860,
     heater: true,
     capacity: 22,
-    src: "./pics/climasPics/tclthermox.png",
+    src: "../pics/climasPics/tclthermox.png",
     energy: "A++",
     guarntie: "3 év",
     description: `Matt panelje kiemeli a többi klíma közül. A légbefúvás olyan egyenletes, mint egy lágy fuvallat, a 4 irányú légtereléssel együtt kiemelkedö a komfortérzet akár hüt akár fűt. 4in1 szürö gondoskodik a levegö tisztaságáról. A beépített wifi-nek a köszönhetöen akár okos otthonba is kapcsolható.`,
