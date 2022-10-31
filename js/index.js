@@ -72,6 +72,7 @@ const createDetailsPage = (item, listElement) => {
   let description = document.createElement("p");
   description.innerHTML = item.description;
   description.className = "description";
+
   let interestDiv = document.createElement("div");
   interestDiv.className = "order-container";
   let price = document.createElement("span");
@@ -123,7 +124,12 @@ const createList = (listDiv, item) => {
   icon.src = "./pics/pngegg.png";
   icon.className = "list-icon";
   spanBrand.textContent =
-    item.brand.toUpperCase() + " " + item.type.toUpperCase();
+    item.brand.toUpperCase() +
+    " " +
+    item.type.toUpperCase() +
+    " " +
+    item.kw +
+    "kw";
   spanPrice.textContent = item.price + "Ft";
   typeContainer.append(icon, spanBrand);
 

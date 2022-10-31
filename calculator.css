@@ -51,6 +51,7 @@
 .description {
   width: 100%;
   text-align: justify;
+  font-size: 0.9em;
 }
 .order-container {
   margin: 10px 0;

@@ -89,12 +89,13 @@ header {
   margin-left: 20px;
 }
 .landing-intro-container h1 {
-  font-size: 46px;
+  font-size: 2.5em;
   color: rgb(65, 65, 65);
+  margin-bottom: 40px;
 }
 .landing-intro-container li {
-  font-size: 24px;
-  margin-top: 15px;
+  font-size: 1.6em;
+  margin-top: 20px;
   color: rgb(65, 65, 65);
 }
 .landing-intro-container li:hover {
@@ -184,11 +185,19 @@ button:hover {
     font-weight: normal;
     font-size: 14px;
   }
+  .landing-intro-container {
+    margin-top: 130px;
+  }
   .landing-intro-container li {
     font-size: 18px;
   }
   label {
     font-size: 18px;
     font-weight: 400;
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
