@@ -98,14 +98,11 @@ const createDetailsPage = (item, listElement) => {
 const createOrderForm = (detailsContainer, item) => {
   const phoneContainer = document.createElement("form");
   phoneContainer.className = "phone-container";
-  phoneContainer.addEventListener("submit", handleSubmit);
+  phoneContainer.addEventListener("submit", (e) => handleSubmit(e, item));
   const phoneInput = document.createElement("input");
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
   phoneInput.setAttribute("type", "text");
   phoneInput.setAttribute("name", "phone");
-  const productInput = document.createElement("input");
-  productInput.setAttribute("name", "product");
-  productInput.setAttribute("hidden", "true");
   productInput.value = item;
   const submitOrderBtn = document.createElement("button");
   submitOrderBtn.setAttribute("type", "submit");
@@ -208,14 +205,14 @@ function encode(data) {
     .join("&");
 }
 
-const handleSubmit = (event) => {
+const handleSubmit = (event, item) => {
   event.preventDefault();
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({
       "form-name": "contact",
-      "form-name": "product",
+      product: item,
     }),
   })
     .then(() => console.log("successful"))
