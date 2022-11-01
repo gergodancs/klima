@@ -110,7 +110,6 @@ const createOrderForm = (detailsContainer, item) => {
     formValues.phone = e.target.value;
     formValues.type = `${item.brand} ${item.type}`;
   });
-  ///  submitOrderBtn.addEventListener("click", () => console.log({ formValues }));
   phoneContainer.append(phoneInput, submitOrderBtn);
   detailsContainer.append(phoneContainer);
 };
