@@ -102,6 +102,7 @@ const createOrderForm = (detailsContainer, item) => {
   const phoneInput = document.createElement("input");
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
   phoneInput.type = "tel";
+  phoneInput.setAttribute("name", "phone");
   const submitOrderBtn = document.createElement("button");
   submitOrderBtn.type = "submit";
   submitOrderBtn.innerHTML = "Visszahívást kérek!";
@@ -198,18 +199,22 @@ const calculateClima = () => {
   }
 };
 
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
 const handleSubmit = (event) => {
   event.preventDefault();
-
-  const myForm = event.target;
-  const formData = new FormData(myForm);
-
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
+    body: encode({
+      "form-name": "contact",
+    }),
   })
-    .then(() => console.log("Form successfully submitted"))
+    .then(() => console.log("successful"))
     .catch((error) => alert(error));
 };
 
