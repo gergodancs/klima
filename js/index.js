@@ -105,7 +105,7 @@ const createOrderForm = (detailsContainer, item) => {
   phoneInput.setAttribute("name", "phone");
   const productInput = document.createElement("input");
   productInput.setAttribute("name", "product");
-  productInput.setAttribute("hidden");
+  productInput.setAttribute("hidden", "true");
   productInput.value = item;
   const submitOrderBtn = document.createElement("button");
   submitOrderBtn.setAttribute("type", "submit");
