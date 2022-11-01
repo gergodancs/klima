@@ -210,7 +210,10 @@ const handleSubmit = (event) => {
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode(formValues),
+    body: encode({
+      "form-name": "contact",
+      ...formValues,
+    }),
   })
     .then(() => console.log("successful"))
     .catch((error) => alert(error));
