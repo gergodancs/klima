@@ -101,10 +101,10 @@ const createOrderForm = (detailsContainer, item) => {
   phoneContainer.addEventListener("submit", handleSubmit);
   const phoneInput = document.createElement("input");
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
-  phoneInput.type = "tel";
+  phoneInput.setAttribute("type", "text");
   phoneInput.setAttribute("name", "phone");
   const submitOrderBtn = document.createElement("button");
-  submitOrderBtn.type = "submit";
+  submitOrderBtn.setAttribute("type", "submit");
   submitOrderBtn.innerHTML = "Visszahívást kérek!";
   phoneInput.addEventListener("input", (e) => {
     formValues.phone = e.target.value;
