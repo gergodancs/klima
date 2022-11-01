@@ -103,6 +103,7 @@ const createOrderForm = (detailsContainer, item) => {
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
   phoneInput.setAttribute("type", "text");
   phoneInput.setAttribute("name", "phone");
+  phoneInput.value = { phone: e.target.value, product: item };
 
   const submitOrderBtn = document.createElement("button");
   submitOrderBtn.setAttribute("type", "submit");
@@ -205,7 +206,8 @@ function encode(data) {
     .join("&");
 }
 
-const handleSubmit = (event, item) => {
+const handleSubmit = (event) => {
+  console.log(event.target.value);
   event.preventDefault();
   fetch("/", {
     method: "POST",
