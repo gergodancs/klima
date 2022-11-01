@@ -110,7 +110,7 @@ const createOrderForm = (detailsContainer, item) => {
     formValues.phone = e.target.value;
     formValues.type = `${item.brand} ${item.type}`;
   });
-  submitOrderBtn.addEventListener("click", () => console.log({ formValues }));
+  ///  submitOrderBtn.addEventListener("click", () => console.log({ formValues }));
   phoneContainer.append(phoneInput, submitOrderBtn);
   detailsContainer.append(phoneContainer);
 };
@@ -210,9 +210,7 @@ const handleSubmit = (event) => {
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({
-      "form-name": "contact",
-    }),
+    body: encode(formValues),
   })
     .then(() => console.log("successful"))
     .catch((error) => alert(error));
