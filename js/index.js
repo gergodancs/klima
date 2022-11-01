@@ -98,10 +98,10 @@ const createDetailsPage = (item, listElement) => {
 const createOrderForm = (detailsContainer, item) => {
   const phoneContainer = document.createElement("form");
   phoneContainer.className = "phone-container";
-
+  phoneContainer.addEventListener("submit", handleSubmit);
   const phoneInput = document.createElement("input");
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
-  phoneInput.type = "number";
+  phoneInput.type = "tel";
   const submitOrderBtn = document.createElement("button");
   submitOrderBtn.type = "submit";
   submitOrderBtn.innerHTML = "Visszahívást kérek!";
@@ -197,6 +197,22 @@ const calculateClima = () => {
     );
   }
 };
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  const myForm = event.target;
+  const formData = new FormData(myForm);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => console.log("Form successfully submitted"))
+    .catch((error) => alert(error));
+};
+
 closeListBtn.addEventListener("click", () => removeClimalist());
 
 submit.addEventListener("click", () => (!listIsOpen ? calculateClima() : null));
