@@ -218,7 +218,6 @@ const handleSubmit = (event) => {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({
       "form-name": "contact",
-      "form-name": "product",
     }),
   })
     .then(() => console.log("successful"))
