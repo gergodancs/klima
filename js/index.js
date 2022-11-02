@@ -103,6 +103,10 @@ const createOrderForm = (detailsContainer, item) => {
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
   phoneInput.setAttribute("type", "text");
   phoneInput.setAttribute("name", "phone");
+  const brandInput = document.createElement("input");
+  brandInput.setAttribute("type", "text");
+  brandInput.setAttribute("name", "product");
+  brandInput.setAttribute("hidden", "hidden");
   const submitOrderBtn = document.createElement("button");
   submitOrderBtn.setAttribute("type", "submit");
   submitOrderBtn.innerHTML = "Visszahívást kérek!";
@@ -213,6 +217,7 @@ const handleSubmit = (event) => {
     body: encode({
       "form-name": "contact",
       phone: event.target.phone.value,
+      product: event.target.value.product,
     }),
   })
     .then(() => console.log("successful"))
