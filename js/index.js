@@ -103,12 +103,6 @@ const createOrderForm = (detailsContainer, item) => {
   phoneInput.setAttribute("placeholder", "Kérem adja meg telefonszámát:");
   phoneInput.setAttribute("type", "text");
   phoneInput.setAttribute("name", "phone");
-  const brandInput = document.createElement("input");
-  brandInput.setAttribute("type", "text");
-  brandInput.setAttribute("name", "phone");
-  brandInput.setAttribute("hidden", "hidden");
-  brandInput.value = item.brand + item.type + item.kw;
-
   const submitOrderBtn = document.createElement("button");
   submitOrderBtn.setAttribute("type", "submit");
   submitOrderBtn.innerHTML = "Visszahívást kérek!";
