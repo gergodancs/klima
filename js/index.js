@@ -154,6 +154,22 @@ const createList = (listDiv, item) => {
   });
 };
 
+
+const calculateByRoomSize = (capacity) => {
+  if(capacity > formValues.size){
+    if(capacity < formValues.size + 5){
+      console.log(capacity)
+      console.log(true)
+      return true
+    }
+  }else {
+    console.log(false)
+    return false
+  }
+}
+
+
+
 const calculateClima = () => {
   ascOrderList();
   if (formValues.size === "") alert("Kérem adja meg a szoba méretét!");
@@ -169,7 +185,7 @@ const calculateClima = () => {
     return ascOrderedClimas.map((item) => {
       if (
         item.price <= calculateAveragePrice() &&
-        item.capacity > formValues.size
+        calculateByRoomSize(item.capacity)
       ) {
         createList(listDiv, item);
       }
@@ -179,7 +195,7 @@ const calculateClima = () => {
     return ascOrderedClimas.map((item) => {
       if (
         item.price >= calculateAveragePrice() &&
-        item.capacity >= formValues.size
+        calculateByRoomSize(item.capacity)
       ) {
         createList(listDiv, item);
       }
@@ -187,17 +203,20 @@ const calculateClima = () => {
   }
   if (formValues.func === "cooler") {
     return ascOrderedClimas?.map((item) =>
-      item.capacity >= formValues.size ? createList(listDiv, item) : null
+    calculateByRoomSize(item.capacity) ? createList(listDiv, item) : null
     );
   }
   if (formValues.func === "both") {
-    return ascOrderedClimas?.map((item) =>
-      !item.heater && item.capacity >= formValues.size
-        ? createList(listDiv, item)
-        : null
-    );
+    return ascOrderedClimas?.map((item) => {
+      if(!item.heater && calculateByRoomSize(item.capacity)){
+        console.log(item.capacity)
+        createList(listDiv, item)
+      }
+    }
+    )
   }
 };
+
 
 function encode(data) {
   return Object.keys(data)

@@ -204,12 +204,13 @@ button:hover {
     font-size: 0.8em;
   }
   .landing-intro-container {
-    margin-top: 110px;
+    margin-top: 140px;
   }
   .landing-intro-container li {
     font-size: 1em;
   }
   .landing-intro-container h1 {
+    margin-top: 40px;
     font-size: 1.4em;
   }
   label {
