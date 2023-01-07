@@ -25,7 +25,7 @@ const displayAllClima=()=>{
         detailsContainer.className = "details-container";
         card.append(detailsContainer)
         let title = document.createElement('h3')
-        title.innerText = clima?.brand.toUpperCase() + " " + clima?.type.toUpperCase()
+        title.innerText = clima?.brand.toUpperCase() + " " + clima?.type.toUpperCase() + " " + clima?.kw + "kw"
         let price = document.createElement("p")
         price.innerText = clima.price+" "+"Ft"
         detailsContainer.append(title,price)
